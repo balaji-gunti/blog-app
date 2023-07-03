@@ -36,6 +36,7 @@ export default function BlogCard({
       const { data } = await axios.delete(
         `${config.endpoint}/v1/blogs/delete/${id}`
       );
+      window.location.reload();
       navigate("/blogs");
     } catch (error) {
       console.log(error);
