@@ -8,7 +8,8 @@ import CreateBlog from "./components/CreateBlog";
 import UpdateBlog from "./components/UpdateBlog";
 
 export const config = {
-  endpoint: `http://localhost:8082`,
+  // endpoint: `http://localhost:8082`,
+  endpoint: `https://blogapp-backend-ygpc.onrender.com`,
 };
 
 function App() {
