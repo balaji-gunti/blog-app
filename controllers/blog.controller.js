@@ -84,12 +84,16 @@ const createBlog = async (req, res) => {
     }
     const newBlog = new blogModel({ title, description, image, user });
 
-    const session = await mongoose.startSession();
-    session.startTransaction();
-    await newBlog.save({ session });
+    // const session = await mongoose.startSession();
+    // session.startTransaction();
+    // await newBlog.save({ session });
+    // existingUser.blogs.push(newBlog);
+    // await existingUser.save({ session });
+    // session.commitTransaction();
+
+    await newBlog.save();
     existingUser.blogs.push(newBlog);
-    await existingUser.save({ session });
-    session.commitTransaction();
+    await existingUser.save();
 
     await newBlog.save();
     return res.status(201).send({
