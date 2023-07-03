@@ -14,6 +14,21 @@ const blogSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    user: {
+      type: mongoose.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    votes: {
+      upVotes: {
+        type: Number,
+        default: 0,
+      },
+      downVotes: {
+        type: Number,
+        default: 0,
+      },
+    },
   },
   {
     timeStamps: true,

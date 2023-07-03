@@ -39,6 +39,7 @@ const loginUser = async (req, res) => {
     if (!email || !password) {
       return res.status(401).send({
         message: "Please provide both email and password",
+        sucess: false,
       });
     }
 
@@ -46,6 +47,7 @@ const loginUser = async (req, res) => {
     if (!user) {
       return res.status(200).send({
         message: "email is not registerd",
+        sucess: false,
       });
     }
 
@@ -53,17 +55,20 @@ const loginUser = async (req, res) => {
     if (!isMatch) {
       return res.status(401).send({
         message: "Invalid username or password",
+        sucess: false,
       });
     }
 
     return res.status(200).send({
       message: "Login success",
       user,
+      sucess: true,
     });
   } catch (err) {
     console.log(err);
     return res.status(500).send({
       message: "error while logging in",
+      sucess: false,
       err,
     });
   }

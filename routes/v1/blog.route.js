@@ -2,6 +2,7 @@ const express = require("express");
 const {
   getAllBlogs,
   getBlogById,
+  getUserBlogs,
   createBlog,
   updateBlog,
   deleteBlogById,
@@ -15,8 +16,10 @@ router.get("/:id", getBlogById);
 
 router.post("/create", createBlog);
 
-router.put("/:id", updateBlog);
+router.put("/update/:id", updateBlog);
 
-router.delete("/:id", deleteBlogById);
+router.delete("/delete/:id", deleteBlogById);
+
+router.get("/user/:id", getUserBlogs);
 
 module.exports = router;
